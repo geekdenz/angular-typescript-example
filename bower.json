@@ -1,0 +1,31 @@
+{
+  "name": "angular-typescript-example",
+  "version": "0.0.1",
+  "homepage": "https://github.com/geekdenz/angular-typescript-example",
+  "authors": [
+    "Tim-Hinnerk Heuer <heuert@landcareresearch.co.nz>"
+  ],
+  "description": "Project demonstrating TypeScript with AngularJS with a simple directive.",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "angular",
+    "typescript",
+    "example",
+    "bootstrap",
+    "application",
+    "web"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-route": "~1.4.7"
+  }
+}
