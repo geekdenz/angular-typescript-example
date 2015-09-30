@@ -1,4 +1,5 @@
-﻿var app;
+/// <reference path="../_app.ts" />
+var app;
 (function (app) {
     'use strict';
     var AppStorage = (function () {
@@ -14,10 +15,10 @@
     })();
     app.AppStorage = AppStorage;
 })(app || (app = {}));
+/// <reference path="../_app.ts" />
 var app;
 (function (app) {
     'use strict';
-
     var AppCtrl = (function () {
         function AppCtrl($scope, appStorage) {
             this.$scope = $scope;
@@ -36,6 +37,7 @@ var app;
     })();
     app.AppCtrl = AppCtrl;
 })(app || (app = {}));
+/// <reference path="../_app.ts" />
 var app;
 (function (app) {
     'use strict';
@@ -46,10 +48,12 @@ var app;
             link: function ($scope, element, attributes) {
                 element.on('mouseenter', function () {
                     element.addClass('animate');
-                }).on('mouseleave', function () {
+                })
+                    .on('mouseleave', function () {
                     element.removeClass('animate');
-                }).on('click', function () {
-                    var name = JSON.parse(JSON.stringify(prompt('Please enter your name:')));
+                })
+                    .on('click', function () {
+                    var name = JSON.parse(JSON.stringify(prompt('Please enter your name:'))); // encode input to avoid escaping character
                     $scope.changeName(name);
                     $scope.$digest();
                 });
@@ -59,17 +63,27 @@ var app;
     app.changeName = changeName;
     ;
 })(app || (app = {}));
+/// <reference path="../_app.ts" />
 var app;
 (function (app) {
     'use strict';
-    angular.module('app', ['ngRoute']).service('appStorage', app.AppStorage).controller('appCtrl', app.AppCtrl).directive('changeName', app.changeName).config([
-        '$routeProvider', function ($routeProvider) {
+    angular.module('app', ['ngRoute'])
+        .service('appStorage', app.AppStorage)
+        .controller('appCtrl', app.AppCtrl)
+        .directive('changeName', app.changeName)
+        .config(['$routeProvider', function ($routeProvider) {
             $routeProvider.when('/', {
                 templateUrl: './partials/app.html',
                 controller: 'appCtrl'
-            }).otherwise({
+            })
+                .otherwise({
                 redirectTo: '/'
             });
         }]);
 })(app || (app = {}));
-//# sourceMappingURL=app.js.map
+/// <reference path="../Lib/DefinitelyTyped/jquery/jquery.d.ts" />
+/// <reference path="../Lib/DefinitelyTyped/angular/angular.d.ts" />
+/// <reference path="./Services/AppStorage.ts" />
+/// <reference path='./Controllers/AppCtrl.ts' />
+/// <reference path="./Directives/changeName.ts" />
+/// <reference path="./Modules/app.ts" /> 
